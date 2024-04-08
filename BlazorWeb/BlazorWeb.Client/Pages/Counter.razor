@@ -1,0 +1,53 @@
+﻿@page "/counter"
+@rendermode InteractiveAuto
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+<p>
+    This is a simple example of a Blazor page. The page contains a button that increments a counter when clicked.
+    The page is part of the WebClient project. The page is downloaded to the client and executed in the browser.
+</p>
+<p>
+    In this page we will demonstrate different features, some available to any user, and some only available to
+    authenticated users. For example, the counter is available to any user, but the weather page is only available
+    to authenticated users. Finally, some features are only available to paid users. For example, the ability to
+    click a button that will increment the counter in steps of 5 may only be available to paid users.
+</p>
+
+<p role="status">Current count: @currentCount</p>
+
+<h3 class="mt-4">Available to anyone</h3>
+<p>
+    Anyone can click the button, even if you are not logged in. The counter will increment by 1 each time the button is clicked.
+</p>
+<button class="btn btn-secondary" @onclick="IncrementCount">Click to Add 1</button>
+
+<h3 class="mt-4">Authenticated users only</h3>
+<p>
+    Available to only authenticated users. The counter will increment by 2 each time the button is clicked.
+</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click to Add 2</button>
+
+<h3 class="mt-4">Authorized users only</h3>
+<p>
+    Only users that have authenticated and are authorized to access this feature can click the button. The counter 
+    will increment by 3 each time the button is clicked.
+</p>
+<button class="btn btn-primary" @onclick="IncrementCount">Click to Add 3</button>
+
+<h3 class="mt-4">Paid users only</h3>
+<p>
+    Only users that have authenticated, are authorized to access this feature, and have paid for the premium features
+    can click the button. The counter will increment by 5 each time the button is clicked.
+</p>
+<button class="btn btn-success" @onclick="IncrementCount">Click to Add 5</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
